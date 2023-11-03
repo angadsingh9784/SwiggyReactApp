@@ -1,0 +1,21 @@
+# Dependency directories
+/node_modules
+
+# Production build files
+/build
+/dist
+
+# Environment variables file
+.env
+.parcel-cache
+# IDE/Editor specific files
+.idea
+.vscode
+*.sublime-*
+*.swp
+
+# Log files
+*.log
+
+# User-specific files
+.DS_Store

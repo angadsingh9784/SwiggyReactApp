@@ -47,7 +47,7 @@ const Restrauant = () => {
     }
 
 
-    return (restrauant.length === 0) ? <ShimmerSimpleGallery/>: (
+    return (
         <>
 
 

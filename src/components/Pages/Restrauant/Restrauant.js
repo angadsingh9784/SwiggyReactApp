@@ -7,7 +7,7 @@ import { HiCurrencyRupee } from 'react-icons/hi'
 import { addItem } from '../../../utils/cartSlice';
 import { Dispatch } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-import { ShimmerSimpleGallery } from 'react-shimmer-effects';
+import {  ShimmerPostList } from 'react-shimmer-effects';
 
 
 const Restrauant = () => {
@@ -47,7 +47,7 @@ const Restrauant = () => {
     }
 
 
-    return (
+    return (restrauant.length === 0) ? <ShimmerPostList postStyle="STYLE_FOUR" col={3} row={2} gap={30} /> : (
         <>
 
 

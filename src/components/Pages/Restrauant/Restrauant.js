@@ -7,6 +7,8 @@ import { HiCurrencyRupee } from 'react-icons/hi'
 import { addItem } from '../../../utils/cartSlice';
 import { Dispatch } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
+import { ShimmerSimpleGallery } from 'react-shimmer-effects';
+
 
 const Restrauant = () => {
     const params = useParams();
@@ -19,14 +21,14 @@ const Restrauant = () => {
 
     async function getRestrauantInfo() {
         if (window.innerWidth >= 1024) {
-            const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=31.3260152&lng=75.57618289999999&restaurantId=" + params.id + "&catalog_qa=undefined&submitAction=ENTER")
+            const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=31.3260152&lng=75.57618289999999&restaurantId=" + params.id + "&catalog_qa=undefined&submitAction=ENTER")
             const json = await data?.json();
             console.log(json?.data);
             setResMenu(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards[1].card?.card?.itemCards);
             setRestrauant(json?.data?.cards[0]?.card?.card?.info)
         }else{
             //https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=31.3260152&lng=75.57618289999999&restaurantId=115812&submitAction=ENTER
-            const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=31.3260152&lng=75.57618289999999&restaurantId=" + params.id + "&submitAction=ENTER")
+            const data = await fetch("https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=31.3260152&lng=75.57618289999999&restaurantId=" + params.id + "&submitAction=ENTER")
             const json = await data?.json();
 
             setRestrauant(json?.data?.cards[0]?.card?.card?.info)
@@ -45,7 +47,7 @@ const Restrauant = () => {
     }
 
 
-    return (
+    return (restrauant.length === 0) ? <ShimmerSimpleGallery/>: (
         <>
 
 
